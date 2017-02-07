@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>JQuery Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+  <h2>Introduction</h2>
+  <p>JQuery vs AngularJS:</p>
+  <form>
+    <div class="form-group">
+      <label for="usr">Name:</label>
+      <input type="text" class="form-control" id="input-name">
+      <label for="sel1">Select Color (select one):</label>
+      <select class="form-control" id="select-color">
+        <option>Red</option>
+        <option>Yellow</option>
+        <option>Green</option>
+        <option>Magenta</option>
+      </select>
+    </div>
+  </form>
+  <h3 id="heading-name" style="display:none">
+    <span id="span-name"></span>: Hi everyone</h3>
+    <h3 id="heading-color" style="display:none">
+    Color Selected:  <span id="span-color"> &nbsp;&nbsp;</span></h3>
+    <script>
+    $(document).ready(function() {
+        $("#input-name").keyup(function() {
+            var name = $("#input-name").val();
+            if (name) {
+                $("#span-name").text(name);
+                $("#heading-name").show();
+            } else {
+                $("#heading-name").hide();
+            }
+        });
+        $("#select-color").change(function() {
+            var color = $("#select-color").val();
+            if (color != "Please select") {
+                $("#span-color").css('background-color', color);
+                $("#span-color").attr('title', color);
+                $("#heading-color").show();
+            } else {
+                $("#heading-color").hide();
+            }
+        });
+    });
+    </script>
+</div>
+
+</body>
+</html>

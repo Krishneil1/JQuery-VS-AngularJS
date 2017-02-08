@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html ng-app><!--Addition of ng-App-->
 <head>
   <title>AngularJS Example</title>
   <meta charset="utf-8">
@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
 </head>
 <body>
 
@@ -16,9 +17,10 @@
   <form>
     <div class="form-group">
       <label for="usr">Name:</label>
-      <input type="text" class="form-control" id="input-name">
+      <input type="text" class="form-control" ng-model="name"> <!--Instead of Id you have now ng-model for ref-->
       <label for="sel1">Select Color (select one):</label>
-      <select class="form-control" id="select-color">
+      <select class="form-control" ng-model="color"><!--Instead of Id you have now ng-model for ref-->
+		<option value="">Please select</option>
         <option>Red</option>
         <option>Yellow</option>
         <option>Green</option>
@@ -26,10 +28,11 @@
       </select>
     </div>
   </form>
-  <h3 id="heading-name" style="display:none">
-    <span id="span-name"></span>: Hi everyone</h3>
-
+	<h3 ng-show="name">{{name}}:Hi, Everyone</h3><!--Calling name model-->
+	<h3 ng-show="color">Color Selected:<!--Calling color model-->
+	<span title="{{color}}" style="background-color:{{color}};">&nbsp;&nbsp;</span></h3>
 </div>
 
 </body>
 </html>
+<!--This demo proves the huge productivity improvement you gain using AngularJS-->
